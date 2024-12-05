@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yesteryear&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #9890e3, #b1f4cf);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .counter {
+            font-size: 6vw;
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        .btn {
+            background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+            padding: 15px 60px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 15px #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            border: none;
+            font-size: 4vw;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .reset-group {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .btn {
+                font-size: 5vw;
+                padding: 10px 40px;
+            }
+
+            .counter {
+                font-size: 8vw;
+            }
+
+            .btn-group {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                font-size: 6vw;
+                padding: 8px 30px;
+            }
+
+            .counter {
+                font-size: 10vw;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .reset-group {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="btn-group">
+            <button class="btn" onclick="sub()">-</button>
+            <p class="counter" id="counter">0</p>
+            <button class="btn" onclick="add()">+</button>
+        </div>
+        <div class="reset-group">
+            <button class="btn" onclick="reset()">Reset</button>
+        </div>
+    </div>
+    <script>
+        function add() {
+            var value = Number(document.getElementById("counter").textContent);
+            document.getElementById("counter").textContent = value + 1;
+        }
+
+        function sub() {
+            var value = Number(document.getElementById("counter").textContent);
+            document.getElementById("counter").textContent = value - 1;
+        }
+
+        function reset() {
+            document.getElementById("counter").textContent = 0;
+        }
+    </script>
+</body>
+</html>
